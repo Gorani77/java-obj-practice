@@ -1,0 +1,8 @@
+# 이클립스 관련 설정 파일 무시
+.classpath
+.project
+.settings/
+
+# bin 폴더 (컴파일된 .class 파일) 무시
+bin/
+*.class
