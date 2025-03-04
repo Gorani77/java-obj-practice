@@ -33,7 +33,7 @@ public class Main {
 					power = false;
 					break;
 				default:
-					System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
+					System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
 			}
 		}
 	}

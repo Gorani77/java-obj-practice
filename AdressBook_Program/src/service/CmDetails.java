@@ -3,9 +3,9 @@ import model.Contact;
 import java.util.Scanner;
 
 public class CmDetails {
-	Scanner scn = new Scanner(System.in);
+	private Scanner scn = new Scanner(System.in);
 	
-	int input() {
+	public int input() {
 		int n = 0;
 		try {
 			n = scn.nextInt();
@@ -17,14 +17,14 @@ public class CmDetails {
 	}	
 	
 	public void printInfo() {
-		System.out.println("1.ë“±ë¡ / 2.ê²€ìƒ‰ / 3.ìˆ˜ì •");
-		System.out.println("4.ì‚­ì œ / 5.ì¶œë ¥ / 6.ì¢…ë£Œ");
+		System.out.println("1.µî·Ï / 2.°Ë»ö / 3.¼öÁ¤");
+		System.out.println("4.»èÁ¦ / 5.Ãâ·Â / 6.Á¾·á");
 	}
 	
 	public void printInfo(Contact c) {
-		System.out.println("ì´ë¦„ : " + c.getName());
-		System.out.println("ì „í™”ë²ˆí˜¸ : " + c.getNum());
-		System.out.println("ì£¼ì†Œ : " + c.getAdd());
+		System.out.println("ÀÌ¸§ : " + c.getName());
+		System.out.println("ÀüÈ­¹øÈ£ : " + c.getNum());
+		System.out.println("ÁÖ¼Ò : " + c.getAdd());
 		System.out.println("==========================");
 	}
 	
@@ -36,7 +36,7 @@ public class CmDetails {
 		}
 	}
 	
-	public int blankIdx(Contact[] cr) { //í•´ë‹¹ ë°°ì—´ì´ ë¹„ì–´ìˆìœ¼ë©´ ë¹„ì–´ìˆëŠ” ì¸ë±ìŠ¤ ê°’ì„ ë°˜í™˜
+	public int blankIdx(Contact[] cr) { //ÇØ´ç ¹è¿­ÀÌ ºñ¾îÀÖÀ¸¸é ºñ¾îÀÖ´Â ÀÎµ¦½º °ªÀ» ¹İÈ¯
 		int idx = 0;
 		boolean flag = false;
 		for (int i = 0; i < cr.length; i++) {
@@ -52,43 +52,43 @@ public class CmDetails {
 		return idx;
 	}
 	
-	public void nameCmpr(Contact[] cr,int idx) { //ë°”ë¡œ ìœ„ì˜ blackIdx ë©”ì„œë“œë¥¼ í†µí•´ ë°˜í™˜ë°›ì€ idxë¡œ ì‚¬ìš©ì ë“±ë¡
+	public void nameCmpr(Contact[] cr,int idx) { //¹Ù·Î À§ÀÇ blackIdx ¸Ş¼­µå¸¦ ÅëÇØ ¹İÈ¯¹ŞÀº idx·Î »ç¿ëÀÚ µî·Ï
 		if (idx != -1) {
 			rgst(cr[idx]);
-			System.out.println("\n ë“±ë¡ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. \n");
+			System.out.println("\n µî·Ï¿Ï·áµÇ¾ú½À´Ï´Ù. \n");
 			printInfo(cr[idx]);
 		} else {
-			System.out.println("ë‚¨ì€ ìë¦¬ê°€ ì—†ìŠµë‹ˆë‹¤. ì‚­ì œê°€ í•„ìš”í•©ë‹ˆë‹¤.");
+			System.out.println("³²Àº ÀÚ¸®°¡ ¾ø½À´Ï´Ù. »èÁ¦°¡ ÇÊ¿äÇÕ´Ï´Ù.");
 		}
 	}
 	
-	public int findUser(Contact[] cr) { //ì´ë¦„ ê²€ìƒ‰ í›„ í•´ë‹¹ë˜ëŠ” ì´ë¦„ì˜ ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜
+	public int findUser(Contact[] cr) { //ÀÌ¸§ °Ë»ö ÈÄ ÇØ´çµÇ´Â ÀÌ¸§ÀÇ ÀÎµ¦½º¸¦ ¹İÈ¯
 		int index = -1;
-		System.out.println("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” > ");
+		System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä > ");
 		String n = scn.next();	
 		for (int i = 0; i < cr.length; i++) {
 			if(cr[i] != null && n.equals(cr[i].getName())) {
 				index = i;
-				System.out.println("ì‚¬ìš©ìë¥¼ ì°¾ì•˜ìŠµë‹ˆë‹¤. \n");
+				System.out.println("»ç¿ëÀÚ¸¦ Ã£¾Ò½À´Ï´Ù. \n");
 			} 
 		}
 		if(index == -1) {
-			System.out.println("ì‚¬ìš©ìê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. \n");
+			System.out.println("»ç¿ëÀÚ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. \n");
 		}
 		return index;
 	}
 	
-	public void rgst(Contact c) { //ì •ë³´ ì„¸íŒ… (nameCmprë©”ì„œë“œì—ì„œ ì‚¬ìš© ì§ì ‘ ì‚¬ìš©í• ì¼ x)
-		System.out.print("ì´ë¦„ : ");
+	public void rgst(Contact c) { //Á¤º¸ ¼¼ÆÃ (nameCmpr¸Ş¼­µå¿¡¼­ »ç¿ë Á÷Á¢ »ç¿ëÇÒÀÏ x)
+		System.out.print("ÀÌ¸§ : ");
 		c.setName(scn.next());
-		System.out.print("ì „í™”ë²ˆí˜¸ : ");
+		System.out.print("ÀüÈ­¹øÈ£ : ");
 		c.setNum(scn.next());
-		System.out.print("ì£¼ì†Œ : ");
+		System.out.print("ÁÖ¼Ò : ");
 		c.setAdd(scn.next());
 	}
 	
 	public void mdf(Contact c) {
-		System.out.print("ìˆ˜ì •í•  ë‚´ìš©ì„ ì„ íƒí•˜ì„¸ìš”.\n1.ì´ë¦„ 2.ë²ˆí˜¸ 3.ì£¼ì†Œ : ");
+		System.out.print("¼öÁ¤ÇÒ ³»¿ëÀ» ¼±ÅÃÇÏ¼¼¿ä.\n1.ÀÌ¸§ 2.¹øÈ£ 3.ÁÖ¼Ò : ");
 		int n = 0;
 		try {
 			n = scn.nextInt();
@@ -100,22 +100,22 @@ public class CmDetails {
 		String add = "";
 
 		if (n == 1) {
-			System.out.println("í˜„ì¬ ì´ë¦„ : " + c.getName());
-			System.out.print("ë°”ê¿€ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ");
+			System.out.println("ÇöÀç ÀÌ¸§ : " + c.getName());
+			System.out.print("¹Ù²Ü ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ");
 			name = scn.next();
 			c.setName(name);
 		} else if (n == 2) {
-			System.out.println("í˜„ì¬ ë²ˆí˜¸ : " + c.getNum());
-			System.out.print("ë°”ê¿€ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
+			System.out.println("ÇöÀç ¹øÈ£ : " + c.getNum());
+			System.out.print("¹Ù²Ü ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
 			num = scn.next();
 			c.setNum(num);
 		} else if (n == 3) {
-			System.out.println("í˜„ì¬ ì£¼ì†Œ : " + c.getAdd());
-			System.out.print("ë°”ê¿€ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
+			System.out.println("ÇöÀç ÁÖ¼Ò : " + c.getAdd());
+			System.out.print("¹Ù²Ü ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
 			add = scn.next();
 			c.setAdd(add);
 		} else {
-			System.out.println("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
+			System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
 		}
 		System.out.println();
 	}

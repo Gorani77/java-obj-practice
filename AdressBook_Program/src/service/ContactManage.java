@@ -2,14 +2,14 @@ package service;
 import model.Contact;
 
 public class ContactManage {
-	CmDetails cd = new CmDetails();
+	private CmDetails cd = new CmDetails();
 	
 	public int firstP() {
 		cd.printInfo();
 		return cd.input();
 	}
 	
-	public void registration(Contact[] cr) { //ì‚¬ìš©ì ë“±ë¡
+	public void registration(Contact[] cr) { //»ç¿ëÀÚ µî·Ï
 		int idx = 0;
 		idx = cd.blankIdx(cr);
 		cd.nameCmpr(cr,idx);
@@ -36,7 +36,7 @@ public class ContactManage {
 		idx = cd.findUser(cr);
 		if (idx != -1) {
 			cr[idx].delContact(cr[idx]);
-			System.out.println("ì‚­ì œê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+			System.out.println("»èÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
 		}
 	}
 	
